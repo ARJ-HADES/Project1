@@ -8,7 +8,7 @@ import Icon from './Icon'
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined"
 import useStyles from './Styles'
 import Input from "./Input"
-import  {Signin, Signup} from '../../actions/auth'
+import  {signin, signup} from '../../actions/auth'
 
 const initialState = {firstName: '', lastName: ' ', email:'', password: '', confirmPassword: '' }
 
@@ -27,9 +27,9 @@ const Auth = () => {
        e.preventDefault()
 
        if(isSignup){
-            dispatch(Signup(formData, history))
+            dispatch(signup(formData, history))
        }else{
-        dispatch(Signin(formData, history))
+        dispatch(signin(formData, history))
 
        }
 
@@ -87,7 +87,7 @@ const Auth = () => {
           { isSignup ? 'Sign Up' : 'Sign In' }
         </Button>
         <GoogleLogin
-          clientId="322027900789-rumalvf2kmikp0115c6gk12f8gqrit63.apps.googleusercontent.com" 
+          clientId="345943953415-3mmr9v21tum2namhkrul3d21q1t982bf.apps.googleusercontent.com" 
           render={(renderProps) => (
             <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
               Google Sign In
