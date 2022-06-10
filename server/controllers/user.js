@@ -25,14 +25,14 @@ export const signin = async (req, res) => {
         res.return(200).json({result: existingUser, token})
     } catch (error) {
 
-        res.status(500).json({message:"Something Went Wrong ! "})
+        res.status(500).json({message: error.message})
         
     }
 
 }
 
 export const signup = async (req, res) => {
-    const {email, password, firstName, lastName} = req.body
+    const {email, password, firstName, lastName, confirmPassword} = req.body
     try {
         const existingUser = await User.findOne ({email})
 
@@ -46,10 +46,10 @@ export const signup = async (req, res) => {
 
         const token = jwt.sign({email: result.email, id: result._id}, 'test', {expiresIn: "1h"})
 
-        res.return(200).json({ result, token})
+        res.status(200).json({ result, token})
 
     } catch (error) {
-        res.status(500).json({message:"Something Went Wrong ! "})
+        res.status(500).json({message: error.message})
         
     }
     
