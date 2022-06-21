@@ -17,6 +17,14 @@ const PostDetails = () => {
     dispatch(getPost(id))
   }, [id])
 
+  if(!post) return null 
+
+  if(isLoading) {
+    return <Paper elavation= {6} className = {classes.loadingPaper} >
+      <CircularProgress size=" 7em" />
+    </Paper>
+  }
+
   return (
     <Paper style={{padding: '20px', borderRadius:'15px'}} elevation={6}>
     <div className={classes.card}>
