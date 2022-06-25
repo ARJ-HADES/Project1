@@ -20,8 +20,9 @@ const Form =({currentId, setCurrentId}) =>{
     const user = JSON.parse(localStorage.getItem('profile'))
 
 
+    
     useEffect(()=>{
-        if (post) setPostData(post) 
+        if (post) setPostData(post)  
     }, [post])
 
     const clear = () =>{
