@@ -47,7 +47,7 @@ const Post =({post, setCurrentId}) =>{
                     </Button>
                 </div>
                 )}
-            <ButtonBase className={classes.cardActions} onClick={openPost}>
+            {/* <ButtonBase className={classes.cardActions} onClick={openPost}> */}
                 <div className={classes.details}>
                     <Typography variant= "body2" color='textSecondary'>{post.tags.map((tag)=>`#${tag} `)}</Typography>
                 </div>
@@ -55,7 +55,7 @@ const Post =({post, setCurrentId}) =>{
                     <CardContent>
                           <Typography variant= "body2" color="textSecondary" component="p">{post.message}</Typography>
                     </CardContent>
-                    </ButtonBase>
+                    {/* </ButtonBase> */}
                     <CardActions className={classes.cardActions}>
                         <Button size="small" color ="primary" disabled ={!user?.result} onClick={()=> dispatch(likePost(post._id))}>
                             <Likes />
