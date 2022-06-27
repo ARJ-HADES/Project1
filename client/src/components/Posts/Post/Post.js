@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Card, CardActions, CardContent, CardMedia, Button, Typography,ButtonBase } from "@material-ui/core"
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import DeleteIcon from '@material-ui/icons/Delete'
@@ -16,6 +16,7 @@ const Post =({post, setCurrentId}) =>{
     const history = useHistory()
     const dispatch = useDispatch()
     const user = JSON.parse(localStorage.getItem('profile'))
+    const [likes, setLikes] = useState(post?.likes)
 
 
     const Likes = () => {
