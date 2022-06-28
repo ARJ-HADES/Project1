@@ -18,7 +18,7 @@ const Post =({post, setCurrentId}) =>{
     const user = JSON.parse(localStorage.getItem('profile'))
     const [likes, setLikes] = useState(post?.likes)
 
-
+    console.log(moment)
     const Likes = () => {
         if (post.likes.length > 0) {
           return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
@@ -36,10 +36,13 @@ const Post =({post, setCurrentId}) =>{
 
     return(
         <Card className ={classes.card} raised elevation ={6} >
+            <ButtonBase className={classes.cardAction} onClick={openPost}>
             <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title ={post.title}/>
                 <div className={classes.overlay}>
                 <Typography variant= "h6">{post.name}</Typography>
-                <Typography variant= "body2">{moment(post.createdAt).fromNow()}</Typography>
+
+                <Typography variant= "body2">{moment.utc(post.createAt).fromNow()}</Typography>
+                
                 </div>
                 {(user?.result?.googleId===post?.creator || user?.result?._id ===post?.creator) && (
                 <div className={classes.overlay2}>
@@ -48,7 +51,7 @@ const Post =({post, setCurrentId}) =>{
                     </Button>
                 </div>
                 )}
-            <ButtonBase className={classes.cardActions} onClick={openPost}>
+            
                 <div className={classes.details}>
                     <Typography variant= "body2" color='textSecondary'>{post.tags.map((tag)=>`#${tag} `)}</Typography>
                 </div>

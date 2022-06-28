@@ -38,7 +38,7 @@ const Home = () => {
 
 const handleKeyPress = (e) => {
     if(e.keyCode ===13) {
-        searchPost()
+        // searchPost()
     }
 }
 
@@ -67,8 +67,8 @@ const handleDelete =(tagToDelete) => setTags(tags.filter((tag) =>tag !==tagToDel
                                  <ChipInput 
                                     style = {{margin: '10px 0'}}
                                     vlaue ={tags}
-                                    onAdd={handleAdd}
-                                    onDelete={handleDelete}
+                                    onAdd={(chip) => handleAdd(chip)}
+                                    onDelete={(chip) => handleDelete(chip)}
                                     label="Search Tags"
                                     variant="outlined"
                                  />
